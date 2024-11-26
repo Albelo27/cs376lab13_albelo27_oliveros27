@@ -49,7 +49,7 @@ public class WindowExample extends JFrame{
 	ImageIcon imgSad = new ImageIcon("images/frowny.png");
 	JLabel imgLabelSad = new JLabel(imgSad);
 	JScrollPane scrollPaneSad = new JScrollPane(imgLabelSad);
-	scrollPaneSad.setBounds(10, 50, imgSad.getIconWidth()+10, imgSad.getIconHeight()+10)
+	scrollPaneSad.setBounds(10, 50, imgSad.getIconWidth()+10, imgSad.getIconHeight()+10);
 
         //6. OK and NOT button listeners to chanage images
 
