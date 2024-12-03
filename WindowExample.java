@@ -28,7 +28,6 @@ public class WindowExample extends JFrame{
 
         topPanel = new JPanel();
         JLabel labelTop = new JLabel("You are a CS376 rockstar! Today:");
-	JLabel labelTop = new;
 	JLabel labelTop = new Jlabel();
 
         //1. left panel creation here
@@ -73,7 +72,7 @@ public class WindowExample extends JFrame{
         //7. labels with image signature 
         //JLabel labelBottom = new JLabel("Image Signature ");
         JLabel labelBottom = new JLabel("Image Signature " + imgSignature(imgHappy));
-        labelBottom.setBounds(10,0,300,50);f
+        labelBottom.setBounds(10,0,300,50);
         //8. add top panels to frame
 	frameopPanel.add(labelTop);
         areaPanel.add(BorderLayout.PAGE_START,topPanel);
