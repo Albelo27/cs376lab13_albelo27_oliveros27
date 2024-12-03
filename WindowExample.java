@@ -28,7 +28,8 @@ public class WindowExample extends JFrame{
 
         topPanel = new JPanel();
         JLabel labelTop = new JLabel("You are a CS376 rockstar! Today:");
-        //JLabel labelTop = new JLabel("You are a CS376 rockstar! Today:" + addTime());
+	JLabel labelTop = new;
+	JLabel labelTop = new Jlabel();
 
         //1. left panel creation here
 	leftPanel = new JPanel();
@@ -55,12 +56,11 @@ public class WindowExample extends JFrame{
         //6. OK and NOT button listeners to chanage images
 
         //7. labels with image signature 
-        JLabel labelBottom = new JLabel("Image Signature ");
-        //JLabel labelBottom = new JLabel("Image Signature " + imgSignature(imgHappy));
-        labelBottom.setBounds(10,0,300,50);
-
+        //JLabel labelBottom = new JLabel("Image Signature ");
+        JLabel labelBottom = new JLabel("Image Signature " + imgSignature(imgHappy));
+        labelBottom.setBounds(10,0,300,50);f
         //8. add top panels to frame
-		topPanel.add(labelTop);
+	frameopPanel.add(labelTop);
         areaPanel.add(BorderLayout.PAGE_START,topPanel);
 
         //9. add buttons Happy and Sad to left panel
@@ -86,10 +86,16 @@ public class WindowExample extends JFrame{
    	}
 
     // 14. addTime method imoplementation
-
+	private String addTime(){
+ 		 String date = new SimpleDateFormat("yyyy-MM-dd:hh:mm:ss zzz yyyy").format(Calendar.getInstance().getTime());
+  		return date;
+	}
 
     // 15. imgSignature method imoplementation
-
+	private String imgSignature(ImageIcon img){
+ 	 	int hash = System.identityHashCode(img);
+ 		return String.valueOf(hash);
+	}	
 
 }
 
