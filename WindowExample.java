@@ -31,13 +31,14 @@ public class WindowExample extends JFrame{
         //JLabel labelTop = new JLabel("You are a CS376 rockstar! Today:" + addTime());
 
         //1. left panel creation here
-
+	leftPanel = new JPanel();
+	leftPanel.setLayout(new BoxLayout(leftPanel,0));
         //2. bottom pane creation here
 	bottomPanel= new JLayeredPane();
 	bottomPanel.setPreferredSize(new Dimension(600, 600));
-
         //3. happy and sad image buttons
-
+	buttonHappy = new JButton(new HappyAction());
+	buttonSad = new JButton(new SadAction());
         //4. happy and sad button change image
 
         //5. happy sad images creation here
@@ -63,11 +64,12 @@ public class WindowExample extends JFrame{
         areaPanel.add(BorderLayout.PAGE_START,topPanel);
 
         //9. add buttons Happy and Sad to left panel
-
+	leftPanel.add(buttonHappy);
+	leftPanel.add(buttonSad);
         //10. add buttons OK and NOT to left panel
 
         //11. add left panel to frame
-
+	areaPanel.add(BorderLayout.LINE_START,leftPanel);
         //12. add images to bottom panel
 
 	bottomPanel.add(labelBottom);
@@ -92,4 +94,18 @@ public class WindowExample extends JFrame{
 }
 
 //16. Happy and Sad Action listeners implemetation 
+class HappyAction extends AbstractAction{
+  HappyAction(){ super("Good"); }
+  @Override
+  public void actionPerformed(ActionEvent arg0) {
+    System.out.println("Good");
+  }
+}
 
+class SadAction extends AbstractAction{
+  SadAction(){ super("Sad"); }
+  @Override
+  public void actionPerformed(ActionEvent arg0) {
+    System.out.println("Noooot Good");
+  }
+}
