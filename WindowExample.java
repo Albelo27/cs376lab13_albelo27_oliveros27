@@ -34,13 +34,23 @@ public class WindowExample extends JFrame{
 	leftPanel = new JPanel();
 	leftPanel.setLayout(new BoxLayout(leftPanel,0));
         //2. bottom pane creation here
-	
+	bottomPanel= new JLayeredPane();
+	bottomPanel.setPreferredSize(new Dimension(600, 600));
         //3. happy and sad image buttons
 	buttonHappy = new JButton(new HappyAction());
 	buttonSad = new JButton(new SadAction());
         //4. happy and sad button change image
 
         //5. happy sad images creation here
+	ImageIcon imgHappy = new ImageIcon("images/smiley.png");
+	JLabel imgLabelHappy = new JLabel(imgHappy);
+	JScrollPane scrollPaneHappy = new JScrollPane(imgLabelHappy);
+	scrollPaneHappy.setBounds(10, 50, imgHappy.getIconWidth()+10, imgHappy.getIconHeight()+10);
+
+	ImageIcon imgSad = new ImageIcon("images/frowny.png");
+	JLabel imgLabelSad = new JLabel(imgSad);
+	JScrollPane scrollPaneSad = new JScrollPane(imgLabelSad);
+	scrollPaneSad.setBounds(10, 50, imgSad.getIconWidth()+10, imgSad.getIconHeight()+10);
 
         //6. OK and NOT button listeners to chanage images
 
@@ -62,8 +72,14 @@ public class WindowExample extends JFrame{
 	areaPanel.add(BorderLayout.LINE_START,leftPanel);
         //12. add images to bottom panel
 
+	bottomPanel.add(labelBottom);
+	bottomPanel.add(scrollPaneHappy);
+	bottomPanel.add(scrollPaneSad);
+
         //13. add bottom panel to frame
  
+	areaPanel.add(BorderLayout.PAGE_END,bottomPanel);
+
         this.add(areaPanel);
         this.pack();
         this.setVisible(true);
